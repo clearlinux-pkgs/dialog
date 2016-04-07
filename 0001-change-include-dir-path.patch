@@ -1,0 +1,41 @@
+From 8f391eeb679d6f4db3d40d0151a835c6eb8d9553 Mon Sep 17 00:00:00 2001
+From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
+Date: Thu, 7 Apr 2016 17:32:12 -0500
+Subject: [PATCH 1/2] change include dir path
+
+This patch was taken from
+http://pkgs.fedoraproject.org/cgit/rpms/dialog.git/tree/ however
+some position lines did not match, for that reason was rewritten.
+
+Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
+---
+ dialog-config.in | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/dialog-config.in b/dialog-config.in
+index 530551b..314f34b 100644
+--- a/dialog-config.in
++++ b/dialog-config.in
+@@ -36,6 +36,7 @@ bindir="@bindir@"
+ libdir="@libdir@"
+ datadir="@datadir@"
+ mandir="@mandir@"
++includedir="@includedir@"
+ 
+ THIS="@PACKAGE@"
+ 
+@@ -68,10 +69,7 @@ while test $# -gt 0; do
+ 		;;
+ 	# compile/link
+ 	--cflags)
+-		INCS=
+-		if test "${prefix}/include" != /usr/include ; then
+-			INCS="-I${prefix}/include"
+-		fi
++		INCS="-I$includedir"
+ 		sed -e 's,^[ ]*,,' -e 's, [ ]*, ,g' -e 's,[ ]*$,,' <<-ENDECHO
+ 			$INCS
+ ENDECHO
+-- 
+2.5.5
+

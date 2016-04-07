@@ -1,0 +1,39 @@
+From 0bccc1ccfd98c7e792b63d62e2bf8389ee085e52 Mon Sep 17 00:00:00 2001
+From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
+Date: Thu, 7 Apr 2016 17:39:28 -0500
+Subject: [PATCH 2/2] change link path by shared library
+
+This patch was taken from
+http://pkgs.fedoraproject.org/cgit/rpms/dialog.git/tree/ however
+some position lines did not match, for that reason was rewritten.
+
+Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
+---
+ dialog-config.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/dialog-config.in b/dialog-config.in
+index 314f34b..56eae66 100644
+--- a/dialog-config.in
++++ b/dialog-config.in
+@@ -33,7 +33,7 @@ exec_prefix="@exec_prefix@"
+ datarootdir="@datarootdir@"
+ 
+ bindir="@bindir@"
+-libdir="@libdir@"
++libdir=
+ datadir="@datadir@"
+ mandir="@mandir@"
+ includedir="@includedir@"
+@@ -76,7 +76,7 @@ ENDECHO
+ 		;;
+ 	--libs)
+ 		sed -e 's,^[ ]*,,' -e 's, [ ]*, ,g' -e 's,[ ]*$,,' <<-ENDECHO
+-			-L${exec_prefix}/lib -l${THIS} @LIBS@
++			-l${THIS}
+ ENDECHO
+ 		;;
+ 	# identification
+-- 
+2.5.5
+
