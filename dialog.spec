@@ -4,7 +4,7 @@
 #
 Name     : dialog
 Version  : 1.3
-Release  : 4
+Release  : 5
 URL      : ftp://invisible-island.net/dialog/dialog-1.3-20160209.tgz
 Source0  : ftp://invisible-island.net/dialog/dialog-1.3-20160209.tgz
 Summary  : dialog - display dialog boxes from shell scripts
