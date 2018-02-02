@@ -6,7 +6,7 @@
 #
 Name     : dialog
 Version  : 1.3.20170509
-Release  : 6
+Release  : 7
 URL      : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz
 Source0  : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz
 Source99 : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz.asc
