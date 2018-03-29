@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20170509
-Release  : 7
-URL      : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz
-Source0  : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz
-Source99 : ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz.asc
+Version  : 1.3.20171209
+Release  : 8
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
+Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -24,9 +24,9 @@ Patch2: 0002-change-link-path-by-shared-library.patch
 
 %description
 Dialog is a program that will let you present a variety of questions or
-display messages using dialog boxes from a shell script.   These  types
-of  dialog  boxes  are  implemented  (though  not  all  are necessarily
-compiled into dialog):
+display messages using dialog boxes from a shell script.  These types
+of dialog boxes are implemented (though not all are necessarily compiled
+into dialog):
 
      buildlist, calendar, checklist, dselect, editbox, form, fselect,
      gauge, infobox, inputbox, inputmenu, menu, mixedform,
@@ -80,7 +80,7 @@ locales components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20170509
+%setup -q -n dialog-1.3-20171209
 %patch1 -p1
 %patch2 -p1
 
@@ -89,12 +89,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1496330072
+export SOURCE_DATE_EPOCH=1522286490
 %configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1496330072
+export SOURCE_DATE_EPOCH=1522286490
 rm -rf %{buildroot}
 %make_install
 %find_lang dialog

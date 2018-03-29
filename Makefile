@@ -1,5 +1,5 @@
 PKG_NAME := dialog
-URL := ftp://invisible-island.net/dialog/dialog-1.3-20170509.tgz
-
+URL = https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
+ARCHIVES = 
 
 include ../common/Makefile.common
