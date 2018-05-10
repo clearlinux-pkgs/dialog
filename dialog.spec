@@ -6,7 +6,7 @@
 #
 Name     : dialog
 Version  : 1.3.20171209
-Release  : 8
+Release  : 9
 URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
 Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
 Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz.asc
