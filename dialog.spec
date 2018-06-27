@@ -5,18 +5,19 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20171209
-Release  : 9
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz
-Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20171209.tgz.asc
+Version  : 1.3.20180621
+Release  : 10
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz
+Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: dialog-bin
 Requires: dialog-lib
+Requires: dialog-license
 Requires: dialog-locales
-Requires: dialog-doc
+Requires: dialog-man
 BuildRequires : groff
 BuildRequires : ncurses-dev
 Patch1: 0001-change-include-dir-path.patch
@@ -39,6 +40,8 @@ This package installs as "cdialog" to avoid conflict with other packages.
 %package bin
 Summary: bin components for the dialog package.
 Group: Binaries
+Requires: dialog-license
+Requires: dialog-man
 
 %description bin
 bin components for the dialog package.
@@ -55,20 +58,21 @@ Provides: dialog-devel
 dev components for the dialog package.
 
 
-%package doc
-Summary: doc components for the dialog package.
-Group: Documentation
-
-%description doc
-doc components for the dialog package.
-
-
 %package lib
 Summary: lib components for the dialog package.
 Group: Libraries
+Requires: dialog-license
 
 %description lib
 lib components for the dialog package.
+
+
+%package license
+Summary: license components for the dialog package.
+Group: Default
+
+%description license
+license components for the dialog package.
 
 
 %package locales
@@ -79,8 +83,16 @@ Group: Default
 locales components for the dialog package.
 
 
+%package man
+Summary: man components for the dialog package.
+Group: Default
+
+%description man
+man components for the dialog package.
+
+
 %prep
-%setup -q -n dialog-1.3-20171209
+%setup -q -n dialog-1.3-20180621
 %patch1 -p1
 %patch2 -p1
 
@@ -89,13 +101,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522286490
+export SOURCE_DATE_EPOCH=1530081373
 %configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1522286490
+export SOURCE_DATE_EPOCH=1530081373
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/dialog
+cp COPYING %{buildroot}/usr/share/doc/dialog/COPYING
 %make_install
 %find_lang dialog
 
@@ -115,15 +129,19 @@ rm -rf %{buildroot}
 /usr/include/dialog/dlg_keys.h
 /usr/lib64/libdialog.so
 
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
-%doc /usr/share/man/man3/*
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libdialog.so.14
-/usr/lib64/libdialog.so.14.0.0
+/usr/lib64/libdialog.so.15
+/usr/lib64/libdialog.so.15.0.0
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/dialog/COPYING
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man1/dialog.1
+/usr/share/man/man3/dialog.3
 
 %files locales -f dialog.lang
 %defattr(-,root,root,-)

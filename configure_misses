@@ -10,6 +10,7 @@ Configure miss: whether to use struct dirent64
 Configure miss: install-prefix
 Configure miss: if you want to check for gcc warnings
 Configure miss: if we should install dlg_XXX headers to subdirectory
+Configure miss: man2html
 Configure miss: if the declaration of iconv() needs const.
 Configure miss: if you want to use dmalloc for testing
 Configure miss: if you want to use dbmalloc for testing
@@ -27,5 +28,7 @@ Configure miss: if we must include wchar.h to declare mbstate_t
 Configure miss: opendir in -ldir
 Configure miss: definition to turn on extended curses functions
 Configure miss: union wait
+Configure miss: sys/termio.h
+Configure miss: whether termios.h needs _POSIX_SOURCE
 Configure miss: if rpath-hack should be disabled
 Configure miss: ldd
