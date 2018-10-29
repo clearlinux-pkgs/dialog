@@ -5,19 +5,21 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20180621
-Release  : 10
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz
-Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20180621.tgz.asc
+Version  : 1.3.20181022
+Release  : 11
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz
+Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
-License  : LGPL-2.1
-Requires: dialog-bin
-Requires: dialog-lib
-Requires: dialog-license
-Requires: dialog-locales
-Requires: dialog-man
+License  : HPND LGPL-2.1 MIT X11
+Requires: dialog-bin = %{version}-%{release}
+Requires: dialog-lib = %{version}-%{release}
+Requires: dialog-license = %{version}-%{release}
+Requires: dialog-locales = %{version}-%{release}
+Requires: dialog-man = %{version}-%{release}
+BuildRequires : cppcheck
+BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : ncurses-dev
 Patch1: 0001-change-include-dir-path.patch
@@ -40,8 +42,8 @@ This package installs as "cdialog" to avoid conflict with other packages.
 %package bin
 Summary: bin components for the dialog package.
 Group: Binaries
-Requires: dialog-license
-Requires: dialog-man
+Requires: dialog-license = %{version}-%{release}
+Requires: dialog-man = %{version}-%{release}
 
 %description bin
 bin components for the dialog package.
@@ -50,9 +52,9 @@ bin components for the dialog package.
 %package dev
 Summary: dev components for the dialog package.
 Group: Development
-Requires: dialog-lib
-Requires: dialog-bin
-Provides: dialog-devel
+Requires: dialog-lib = %{version}-%{release}
+Requires: dialog-bin = %{version}-%{release}
+Provides: dialog-devel = %{version}-%{release}
 
 %description dev
 dev components for the dialog package.
@@ -61,7 +63,7 @@ dev components for the dialog package.
 %package lib
 Summary: lib components for the dialog package.
 Group: Libraries
-Requires: dialog-license
+Requires: dialog-license = %{version}-%{release}
 
 %description lib
 lib components for the dialog package.
@@ -92,7 +94,7 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20180621
+%setup -q -n dialog-1.3-20181022
 %patch1 -p1
 %patch2 -p1
 
@@ -101,15 +103,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530081373
+export SOURCE_DATE_EPOCH=1540779424
 %configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1530081373
+export SOURCE_DATE_EPOCH=1540779424
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/dialog
-cp COPYING %{buildroot}/usr/share/doc/dialog/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/dialog
+cp COPYING %{buildroot}/usr/share/package-licenses/dialog/COPYING
+cp package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/package_debian_copyright
 %make_install
 %find_lang dialog
 
@@ -128,6 +131,7 @@ cp COPYING %{buildroot}/usr/share/doc/dialog/COPYING
 /usr/include/dialog/dlg_config.h
 /usr/include/dialog/dlg_keys.h
 /usr/lib64/libdialog.so
+/usr/share/man/man3/dialog.3
 
 %files lib
 %defattr(-,root,root,-)
@@ -135,13 +139,13 @@ cp COPYING %{buildroot}/usr/share/doc/dialog/COPYING
 /usr/lib64/libdialog.so.15.0.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/dialog/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/dialog/COPYING
+/usr/share/package-licenses/dialog/package_debian_copyright
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/dialog.1
-/usr/share/man/man3/dialog.3
 
 %files locales -f dialog.lang
 %defattr(-,root,root,-)

@@ -1,6 +1,4 @@
 Configure miss: lint
-Configure miss: cppcheck
-Configure miss: splint
 Configure miss: exctags
 Configure miss: ctags
 Configure miss: exetags
@@ -31,4 +29,3 @@ Configure miss: union wait
 Configure miss: sys/termio.h
 Configure miss: whether termios.h needs _POSIX_SOURCE
 Configure miss: if rpath-hack should be disabled
-Configure miss: ldd
