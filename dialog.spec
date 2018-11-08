@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20181022
-Release  : 11
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz
-Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181022.tgz.asc
+Version  : 1.3.20181107
+Release  : 12
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181107.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181107.tgz
+Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20181107.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : HPND LGPL-2.1 MIT X11
@@ -94,7 +94,7 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20181022
+%setup -q -n dialog-1.3-20181107
 %patch1 -p1
 %patch2 -p1
 
@@ -103,12 +103,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540779424
+export SOURCE_DATE_EPOCH=1541644789
 %configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1540779424
+export SOURCE_DATE_EPOCH=1541644789
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
 cp COPYING %{buildroot}/usr/share/package-licenses/dialog/COPYING
