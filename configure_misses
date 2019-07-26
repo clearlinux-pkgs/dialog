@@ -1,8 +1,6 @@
 Configure miss: lint
 Configure miss: exctags
-Configure miss: ctags
 Configure miss: exetags
-Configure miss: ctags
 Configure miss: if the POSIX test-macros are already defined
 Configure miss: _LARGE_FILES value needed for large files
 Configure miss: whether to use struct dirent64

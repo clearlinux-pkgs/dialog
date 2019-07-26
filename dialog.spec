@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20190211
-Release  : 13
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190211.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190211.tgz
-Source99 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190211.tgz.asc
+Version  : 1.3.20190724
+Release  : 14
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190724.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190724.tgz
+Source1 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190724.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : HPND LGPL-2.1 MIT X11
@@ -19,6 +19,7 @@ Requires: dialog-license = %{version}-%{release}
 Requires: dialog-locales = %{version}-%{release}
 Requires: dialog-man = %{version}-%{release}
 BuildRequires : cppcheck
+BuildRequires : ctags
 BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : ncurses-dev
@@ -43,7 +44,6 @@ This package installs as "cdialog" to avoid conflict with other packages.
 Summary: bin components for the dialog package.
 Group: Binaries
 Requires: dialog-license = %{version}-%{release}
-Requires: dialog-man = %{version}-%{release}
 
 %description bin
 bin components for the dialog package.
@@ -55,6 +55,7 @@ Group: Development
 Requires: dialog-lib = %{version}-%{release}
 Requires: dialog-bin = %{version}-%{release}
 Provides: dialog-devel = %{version}-%{release}
+Requires: dialog = %{version}-%{release}
 
 %description dev
 dev components for the dialog package.
@@ -94,7 +95,7 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20190211
+%setup -q -n dialog-1.3-20190724
 %patch1 -p1
 %patch2 -p1
 
@@ -102,13 +103,18 @@ man components for the dialog package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1550191500
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564172700
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1550191500
+export SOURCE_DATE_EPOCH=1564172700
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
 cp COPYING %{buildroot}/usr/share/package-licenses/dialog/COPYING

@@ -27,7 +27,7 @@ index 530551b..314f34b 100644
 @@ -68,10 +69,7 @@ while test $# -gt 0; do
  		;;
  	# compile/link
- 	--cflags)
+ 	--cflags|--cflags-only-I)
 -		INCS=
 -		if test "${prefix}/include" != /usr/include ; then
 -			INCS="-I${prefix}/include"

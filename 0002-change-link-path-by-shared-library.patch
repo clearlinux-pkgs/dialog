@@ -33,7 +33,7 @@ index 314f34b..56eae66 100644
 +			-l${THIS}
  ENDECHO
  		;;
- 	# identification
+ 	--libs-only-L)
 -- 
 2.5.5
 
