@@ -1,31 +1,31 @@
-From 0bccc1ccfd98c7e792b63d62e2bf8389ee085e52 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Thu, 7 Apr 2016 17:39:28 -0500
-Subject: [PATCH 2/2] change link path by shared library
+Subject: [PATCH] change link path by shared library
 
 This patch was taken from
 http://pkgs.fedoraproject.org/cgit/rpms/dialog.git/tree/ however
 some position lines did not match, for that reason was rewritten.
 
 Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
 ---
- dialog-config.in | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ dialog-config.in | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/dialog-config.in b/dialog-config.in
-index 314f34b..56eae66 100644
+index 7ac23e2..6b9758f 100644
 --- a/dialog-config.in
 +++ b/dialog-config.in
-@@ -33,7 +33,7 @@ exec_prefix="@exec_prefix@"
- datarootdir="@datarootdir@"
+@@ -52,7 +52,6 @@ while test $# -gt 0; do
+ 	fi
  
- bindir="@bindir@"
--libdir="@libdir@"
-+libdir=
- datadir="@datadir@"
- mandir="@mandir@"
- includedir="@includedir@"
-@@ -76,7 +76,7 @@ ENDECHO
+ 	eval bindir='"@bindir@"'
+-	eval libdir='"@libdir@"'
+ 	eval datadir='"@datadir@"'
+ 	eval mandir='"@mandir@"'
+ 	eval includedir='"@includedir@"'
+@@ -95,7 +94,7 @@ ENDECHO
  		;;
  	--libs)
  		sed -e 's,^[ ]*,,' -e 's, [ ]*, ,g' -e 's,[ ]*$,,' <<-ENDECHO
@@ -34,6 +34,3 @@ index 314f34b..56eae66 100644
  ENDECHO
  		;;
  	--libs-only-L)
--- 
-2.5.5
-
