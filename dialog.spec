@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20190728
-Release  : 15
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190728.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190728.tgz
-Source1 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190728.tgz.asc
+Version  : 1.3.20190806
+Release  : 16
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190806.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190806.tgz
+Source1 : https://invisible-mirror.net/archives/dialog/dialog-1.3-20190806.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : HPND LGPL-2.1 MIT X11
@@ -23,8 +23,6 @@ BuildRequires : ctags
 BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : ncurses-dev
-Patch1: 0001-change-include-dir-path.patch
-Patch2: 0002-change-link-path-by-shared-library.patch
 
 %description
 Dialog is a program that will let you present a variety of questions or
@@ -95,16 +93,14 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20190728
-%patch1 -p1
-%patch2 -p1
+%setup -q -n dialog-1.3-20190806
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564526145
+export SOURCE_DATE_EPOCH=1565200943
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -114,7 +110,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1564526145
+export SOURCE_DATE_EPOCH=1565200943
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
 cp COPYING %{buildroot}/usr/share/package-licenses/dialog/COPYING

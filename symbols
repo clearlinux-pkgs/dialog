@@ -43,6 +43,7 @@ libdialog.so.15:dlg_box_y_ordinate
 libdialog.so.15:dlg_boxchar
 libdialog.so.15:dlg_buildlist
 libdialog.so.15:dlg_button_count
+libdialog.so.15:dlg_button_key
 libdialog.so.15:dlg_button_layout
 libdialog.so.15:dlg_button_sizes
 libdialog.so.15:dlg_button_to_char
@@ -92,7 +93,9 @@ libdialog.so.15:dlg_editbox
 libdialog.so.15:dlg_exit
 libdialog.so.15:dlg_exit_buttoncode
 libdialog.so.15:dlg_exit_label
+libdialog.so.15:dlg_exitcode2s
 libdialog.so.15:dlg_exiterr
+libdialog.so.15:dlg_exitname2n
 libdialog.so.15:dlg_find_index
 libdialog.so.15:dlg_finish_string
 libdialog.so.15:dlg_flush_getc
@@ -128,6 +131,7 @@ libdialog.so.15:dlg_new_modal_window
 libdialog.so.15:dlg_new_window
 libdialog.so.15:dlg_next_button
 libdialog.so.15:dlg_next_ok_buttonindex
+libdialog.so.15:dlg_ok_button_key
 libdialog.so.15:dlg_ok_buttoncode
 libdialog.so.15:dlg_ok_label
 libdialog.so.15:dlg_ok_labels
