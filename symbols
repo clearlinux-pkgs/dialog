@@ -170,6 +170,7 @@ libdialog.so.15:dlg_trace_2n
 libdialog.so.15:dlg_trace_2s
 libdialog.so.15:dlg_trace_chr
 libdialog.so.15:dlg_trace_msg
+libdialog.so.15:dlg_trace_va_msg
 libdialog.so.15:dlg_trace_win
 libdialog.so.15:dlg_treeview
 libdialog.so.15:dlg_trim_string

@@ -1,3 +1,5 @@
+Configure miss: if this is really Intel C compiler
+Configure miss: if this is really Clang C compiler
 Configure miss: lint
 Configure miss: exctags
 Configure miss: exetags
