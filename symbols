@@ -1,3 +1,4 @@
+libdialog.so.15:_dlg_resize_cleanup
 libdialog.so.15:dialog_buildlist
 libdialog.so.15:dialog_calendar
 libdialog.so.15:dialog_checklist
@@ -154,11 +155,13 @@ libdialog.so.15:dlg_register_buttons
 libdialog.so.15:dlg_register_window
 libdialog.so.15:dlg_remove_callback
 libdialog.so.15:dlg_renamed_menutext
+libdialog.so.15:dlg_reset_timeout
 libdialog.so.15:dlg_restore_vars
 libdialog.so.15:dlg_result_key
 libdialog.so.15:dlg_save_vars
 libdialog.so.15:dlg_set_focus
 libdialog.so.15:dlg_set_result
+libdialog.so.15:dlg_set_timeout
 libdialog.so.15:dlg_show_string
 libdialog.so.15:dlg_strclone
 libdialog.so.15:dlg_strempty

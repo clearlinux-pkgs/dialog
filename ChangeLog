@@ -1,8 +1,38 @@
--- $Id: CHANGES,v 1.664 2019/12/11 02:27:44 tom Exp $
+-- $Id: CHANGES,v 1.683 2020/03/27 21:14:23 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2020/03/27
+	+ add clarification in manual page to show when the single/double
+	  quotes may be needed (prompted by discussion with Danilo G Baio).
+	+ fix an extra ".exe" in makefile.in which prevented Cygwin build.
+	+ fix most cppcheck warnings
+	+ tailbox/tailboxbg's exit-button now works with mouse-clicks
+	+ fix repainting while resizing for the editbox widget.
+	+ add configure-check for curses_exit() from ncurses 6.2
+	+ fix a few memory leaks in fselect.c, mixedgauge.c when resizing.
+	+ fix inconsistency in dlg_string_to_argv() which made the checklist9
+	  example not work.
+	+ add empty-string check in dlg_print_listitem() to avoid indexing past
+	  the end of the array of character-offsets.
+	+ improve handling of KEY_RESIZE by repainting the backtitle after
+	  clearing the screen (integrated patch by Rainer Weikusat, Debian
+	  #954185).
+	+ improve logic for wtimeout() calls which are used to set temporary
+	  non-blocking reads (prompted by patch by Rainer Weikusat, Debian
+	  #954220).
+	+ add "make check" rule.
+	+ updated configure-macros.
+
+2020/02/28
+	+ updated configure-macros, to work around ncurses vs xcode's c99 -W
+	+ update config.guess
+
+2019/12/31
+	+ updated configure-macros.
+	+ update config.guess
 
 2019/12/10
 	+ correct rc-file lookup of "default" color (report by Grady Martin,
