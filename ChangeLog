@@ -1,8 +1,83 @@
--- $Id: CHANGES,v 1.683 2020/03/27 21:14:23 tom Exp $
+-- $Id: CHANGES,v 1.717 2020/11/26 22:43:51 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2020/11/26
+	+ modify configure script's compiler check to work around Xcode's
+	  useless aliases for standard C.
+	+ enable keep-tite feature for NetBSD 8 and up; earlier releases would
+	  dump core.
+	> new features/fixes (Glenn Herteg)
+	+ add option "--cursor-off-label"
+	+ add option "--erase-on-exit"
+	+ fix errata in manpage.
+	+ fix logic: dlg_button_to_char() would return wrong value if no
+	  uppercase was found
+
+2020/11/25
+	+ add DIALOG_TIMEOUT to sample scripts, and use report-button more
+	  consistently to handle unexpected exit-status values.
+
+2020/11/24
+	+ add dlg_getenv_num() and dlg_getenv_str().
+	+ add DLG_EXIT_TIMEOUT to allow scripts to exit on an expired timeout
+	  with an exit-status different from DLG_EXIT_ERROR or DLG_EXIT_ESC
+	  (patch by Norbert Koch).
+
+2020/11/23
+	+ modify dlg_ok_label() and dlg_ok_labels() to ignore --no-ok if all
+	  buttons would be omitted.
+	+ add/use dlg_der_window() to account for derived windows just like
+	  subwindows, to fix regression in dlg_getc() in fselect/dselect
+	  widget.
+	+ modify several widgets to make their handling of --no-ok consistent
+	  with the majority of the widgets: editbox.c, menubox.c, msgbox.c,
+	  rangebox.c, textbox.c, timebox.c
+	+ add ^D as binding for new virtual key DLGK_LEAVE, which will close
+	  the current dialog by activating the currently-selected button.
+	+ improve manual-page description of --no-ok option (reports by
+	  Hans Mueller, Gil Delescluse).
+	+ modify configure script to make Solaris -R rpath feature work
+
+2020/11/21
+	+ fix regression in dlg_getc() caused by not taking into account
+	  subwindows used for input (report by Michael Wihl).
+
+2020/11/20
+	+ add validity-checks for window pointer (report/testcase by Michael
+	  Wihl).
+	+ improve configure macros:
+	  CF_CLANG_COMPILER: apply compiler-flags needed for test.
+	  CF_WITH_SCREEN_PDCURSES: use this to reduce X11-checks.
+
+2020/11/17
+	+ amend initialization for dlg_getc to fix regression in pause widget
+	  from 2020/03/27 changes (reports by Aidan Tessier, Norbert Koch,
+	  Josmar Pierri).
+	+ improve configure macros:
+	  CF_CLANG_COMPILER: split-out check for -Qunused-arguments to ensure
+	  that clang supports it.  IBM xlclang does not.
+	  CF_MIXEDCASE_FILENAMES: when cross-compiling to darwin (macOS),
+	  assume the filesystem doesn't support mixed-case
+
+2020/09/21
+	+ modify init_dialog's initialization of tab_len and aspect_ratio to
+	  avoid overwriting initialization done in process_common_options
+	  (report/patch by Rainer Weikusat, Debian #970508).
+
+2020/09/13
+	+ fix out-of-order description for --tailbox vs --rangebox in manpage
+	  (report by Glenn Herteg).
+	+ updated configure-macros: compiler-warnings and shared-library
+	  options.  Changed configure --with-warnings to --enable-warnings for
+	  consistency.
+	+ update config.guess
+
+2020/04/01
+	+ updated sq.po from
+		http://translationproject.org/latest/dialog/
 
 2020/03/27
 	+ add clarification in manual page to show when the single/double

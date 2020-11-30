@@ -1,1 +1,4 @@
---enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
+--enable-nls
+--with-libtool
+--with-ncursesw
+--includedir=%{_includedir}/dialog

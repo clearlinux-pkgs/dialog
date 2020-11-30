@@ -7,7 +7,7 @@ Configure miss: if the POSIX test-macros are already defined
 Configure miss: _LARGE_FILES value needed for large files
 Configure miss: whether to use struct dirent64
 Configure miss: install-prefix
-Configure miss: if you want to check for gcc warnings
+Configure miss: if you want to turn on gcc warnings
 Configure miss: if we should install dlg_XXX headers to subdirectory
 Configure miss: man2html
 Configure miss: if the declaration of iconv() needs const.
@@ -15,18 +15,21 @@ Configure miss: if you want to use dmalloc for testing
 Configure miss: if you want to use dbmalloc for testing
 Configure miss: if you want to use purify for testing
 Configure miss: if you want to use valgrind for testing
+Configure miss: if rpath option should be used
 Configure miss: x86_64-generic-linux-gnu-libtool
 Configure miss: x86_64-generic-linux-gnu-glibtool
 Configure miss: additional libtool options
 Configure miss: if exported-symbols file should be used
 Configure miss: specific curses-directory
-Configure miss: if rpath option should be used
 Configure miss: specific curses-directory
 Configure miss: _nc_init_pthreads in -lncursesw
 Configure miss: if we must include wchar.h to declare mbstate_t
 Configure miss: opendir in -ldir
 Configure miss: definition to turn on extended curses functions
+Configure miss: curses_exit
+Configure miss: _nc_free_and_exit
 Configure miss: union wait
 Configure miss: sys/termio.h
 Configure miss: whether termios.h needs _POSIX_SOURCE
 Configure miss: if rpath-hack should be disabled
+Configure miss: updated LDFLAGS

@@ -1,3 +1,4 @@
+libdialog.so.15:_dlg_find_window
 libdialog.so.15:_dlg_resize_cleanup
 libdialog.so.15:dialog_buildlist
 libdialog.so.15:dialog_calendar
@@ -72,6 +73,7 @@ libdialog.so.15:dlg_default_item
 libdialog.so.15:dlg_default_listitem
 libdialog.so.15:dlg_defaultno_button
 libdialog.so.15:dlg_del_window
+libdialog.so.15:dlg_der_window
 libdialog.so.15:dlg_does_output
 libdialog.so.15:dlg_draw_arrows
 libdialog.so.15:dlg_draw_arrows2
@@ -107,9 +109,12 @@ libdialog.so.15:dlg_free_gauge
 libdialog.so.15:dlg_get_attrs
 libdialog.so.15:dlg_getc
 libdialog.so.15:dlg_getc_callbacks
+libdialog.so.15:dlg_getenv_num
+libdialog.so.15:dlg_getenv_str
 libdialog.so.15:dlg_index_columns
 libdialog.so.15:dlg_index_wchars
 libdialog.so.15:dlg_item_help
+libdialog.so.15:dlg_keep_tite
 libdialog.so.15:dlg_killall_bg
 libdialog.so.15:dlg_last_getc
 libdialog.so.15:dlg_limit_columns

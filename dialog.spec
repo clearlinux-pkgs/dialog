@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20200327
-Release  : 20
-URL      : http://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz
-Source0  : http://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz
-Source1  : http://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz.asc
+Version  : 1.3.20201126
+Release  : 21
+URL      : http://invisible-mirror.net/archives/dialog/dialog-1.3-20201126.tgz
+Source0  : http://invisible-mirror.net/archives/dialog/dialog-1.3-20201126.tgz
+Source1  : http://invisible-mirror.net/archives/dialog/dialog-1.3-20201126.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : HPND LGPL-2.1 MIT X11
@@ -93,29 +93,32 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20200327
-cd %{_builddir}/dialog-1.3-20200327
+%setup -q -n dialog-1.3-20201126
+cd %{_builddir}/dialog-1.3-20201126
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585617318
+export SOURCE_DATE_EPOCH=1606719277
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-%configure --disable-static --enable-nls --with-libtool --with-ncursesw --includedir=%{_includedir}/dialog
+%configure --disable-static --enable-nls \
+--with-libtool \
+--with-ncursesw \
+--includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1585617318
+export SOURCE_DATE_EPOCH=1606719277
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
-cp %{_builddir}/dialog-1.3-20200327/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead
-cp %{_builddir}/dialog-1.3-20200327/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/67e33b528594a0bfc95653ae06889f74d343048e
+cp %{_builddir}/dialog-1.3-20201126/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead
+cp %{_builddir}/dialog-1.3-20201126/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/67e33b528594a0bfc95653ae06889f74d343048e
 %make_install
 %find_lang dialog
 
