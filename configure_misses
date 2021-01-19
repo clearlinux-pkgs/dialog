@@ -1,5 +1,6 @@
 Configure miss: if this is really Intel C compiler
 Configure miss: if this is really Clang C compiler
+Configure miss: ggrep
 Configure miss: lint
 Configure miss: exctags
 Configure miss: exetags
@@ -15,6 +16,7 @@ Configure miss: if you want to use dmalloc for testing
 Configure miss: if you want to use dbmalloc for testing
 Configure miss: if you want to use purify for testing
 Configure miss: if you want to use valgrind for testing
+Configure miss: if you want to perform memory-leak testing
 Configure miss: if rpath option should be used
 Configure miss: x86_64-generic-linux-gnu-libtool
 Configure miss: x86_64-generic-linux-gnu-glibtool
