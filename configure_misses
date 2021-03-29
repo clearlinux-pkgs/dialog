@@ -18,6 +18,7 @@ Configure miss: if we must include wchar.h to declare mbstate_t
 Configure miss: if we should install dlg_XXX headers to subdirectory
 Configure miss: if you want to perform memory-leak testing
 Configure miss: if you want to turn on gcc warnings
+Configure miss: if you want to use C11 _Noreturn feature
 Configure miss: if you want to use dbmalloc for testing
 Configure miss: if you want to use dmalloc for testing
 Configure miss: if you want to use purify for testing
