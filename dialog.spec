@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : dialog
-Version  : 1.3.20210530
-Release  : 27
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210530.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210530.tgz
-Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210530.tgz.asc
+Version  : 1.3.20210621
+Release  : 28
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210621.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210621.tgz
+Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20210621.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : HPND LGPL-2.1 MIT X11
@@ -93,15 +93,15 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20210530
-cd %{_builddir}/dialog-1.3-20210530
+%setup -q -n dialog-1.3-20210621
+cd %{_builddir}/dialog-1.3-20210621
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622493583
+export SOURCE_DATE_EPOCH=1624467780
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -114,11 +114,11 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1622493583
+export SOURCE_DATE_EPOCH=1624467780
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
-cp %{_builddir}/dialog-1.3-20210530/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead
-cp %{_builddir}/dialog-1.3-20210530/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/07d98b7a43ff062f42603d3cc33d02c6e98e420a
+cp %{_builddir}/dialog-1.3-20210621/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead
+cp %{_builddir}/dialog-1.3-20210621/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/07d98b7a43ff062f42603d3cc33d02c6e98e420a
 %make_install
 %find_lang dialog
 

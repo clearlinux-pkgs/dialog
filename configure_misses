@@ -2,7 +2,6 @@ Configure miss: _LARGE_FILES value needed for large files
 Configure miss: _nc_free_and_exit
 Configure miss: _nc_init_pthreads in -lncursesw
 Configure miss: additional libtool options
-Configure miss: curses_exit
 Configure miss: definition to turn on extended curses functions
 Configure miss: exctags
 Configure miss: exetags
