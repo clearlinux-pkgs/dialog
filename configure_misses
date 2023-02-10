@@ -13,6 +13,7 @@ Configure miss: if the declaration of iconv() needs const.
 Configure miss: if this is really Clang C compiler
 Configure miss: if this is really Intel C compiler
 Configure miss: if we must include wchar.h to declare mbstate_t
+Configure miss: if we should install .pc files for /usr/bin/x86_64-generic-linux-gnu-pkg-config
 Configure miss: if we should install dlg_XXX headers to subdirectory
 Configure miss: if you want to perform memory-leak testing
 Configure miss: if you want to turn on gcc warnings
