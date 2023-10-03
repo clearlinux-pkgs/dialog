@@ -150,6 +150,7 @@ libdialog.so.15:dlg_prev_ok_buttonindex
 libdialog.so.15:dlg_print_autowrap
 libdialog.so.15:dlg_print_line
 libdialog.so.15:dlg_print_listitem
+libdialog.so.15:dlg_print_nowrap
 libdialog.so.15:dlg_print_scrolled
 libdialog.so.15:dlg_print_size
 libdialog.so.15:dlg_print_text

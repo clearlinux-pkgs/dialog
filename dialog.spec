@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : dialog
-Version  : 1.3.20230209
-Release  : 37
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20230209.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20230209.tgz
-Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20230209.tgz.asc
+Version  : 1.3.20231002
+Release  : 38
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz
+Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -98,40 +98,78 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20230209
-cd %{_builddir}/dialog-1.3-20230209
+%setup -q -n dialog-1.3-20231002
+cd %{_builddir}/dialog-1.3-20231002
+pushd ..
+cp -a dialog-1.3-20231002 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689794433
+export SOURCE_DATE_EPOCH=1696342423
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 %configure --disable-static --enable-nls \
 --with-libtool \
 --with-ncursesw \
 --includedir=%{_includedir}/dialog
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+%configure --disable-static --enable-nls \
+--with-libtool \
+--with-ncursesw \
+--includedir=%{_includedir}/dialog
+make  %{?_smp_mflags}
+popd
 %install
-export SOURCE_DATE_EPOCH=1689794433
+export GCC_IGNORE_WERROR=1
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+export SOURCE_DATE_EPOCH=1696342423
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
-cp %{_builddir}/dialog-1.3-20230209/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead || :
-cp %{_builddir}/dialog-1.3-20230209/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/bf7ee27ddc7501b870568ac13e79f3beed561e8d || :
+cp %{_builddir}/dialog-1.3-20231002/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead || :
+cp %{_builddir}/dialog-1.3-20231002/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/bf7ee27ddc7501b870568ac13e79f3beed561e8d || :
+pushd ../buildavx2/
+%make_install_v3
+popd
 %make_install
 %find_lang dialog
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/dialog
 /usr/bin/dialog
 /usr/bin/dialog-config
 
@@ -146,6 +184,7 @@ cp %{_builddir}/dialog-1.3-20230209/package/debian/copyright %{buildroot}/usr/sh
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libdialog.so.15.0.0
 /usr/lib64/libdialog.so.15
 /usr/lib64/libdialog.so.15.0.0
 

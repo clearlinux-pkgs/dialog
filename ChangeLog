@@ -1,8 +1,21 @@
--- $Id: CHANGES,v 1.794 2023/02/09 22:29:43 tom Exp $
+-- $Id: CHANGES,v 1.801 2023/10/03 00:11:42 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2023/10/02
+	+ add/use dlg_print_nowrap(), to handle multibyte character strings in
+	  progressbox and tailbox (report/testcase by Sergey Merzlikin).
+	+ updated configure script, e.g., for compiler-warning fixes.
+	+ update config.guess, config.sub
+
+2023/08/18
+	+ updated configure script, e.g., for compiler-warning fixes.
+	+ minor fixes for manpages to address mandoc warnings.
+	+ updated th.po from
+		http://translationproject.org/latest/dialog/
+	+ update config.guess, config.sub
 
 2023/02/09
 	+ install ".pc" files in the test-packages.
