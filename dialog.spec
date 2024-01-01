@@ -8,14 +8,14 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : dialog
-Version  : 1.3.20231002
-Release  : 40
-URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz
-Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz
-Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz.asc
+Version  : 1.3.20240101
+Release  : 41
+URL      : https://invisible-mirror.net/archives/dialog/dialog-1.3-20240101.tgz
+Source0  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20240101.tgz
+Source1  : https://invisible-mirror.net/archives/dialog/dialog-1.3-20240101.tgz.asc
 Summary  : dialog - display dialog boxes from shell scripts
 Group    : Development/Tools
-License  : LGPL-2.1 MIT
+License  : LGPL-2.1
 Requires: dialog-bin = %{version}-%{release}
 Requires: dialog-lib = %{version}-%{release}
 Requires: dialog-license = %{version}-%{release}
@@ -100,15 +100,15 @@ man components for the dialog package.
 
 
 %prep
-%setup -q -n dialog-1.3-20231002
-cd %{_builddir}/dialog-1.3-20231002
+%setup -q -n dialog-1.3-20240101
+cd %{_builddir}/dialog-1.3-20240101
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701949503
+export SOURCE_DATE_EPOCH=1704136758
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -138,11 +138,10 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701949503
+export SOURCE_DATE_EPOCH=1704136758
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dialog
-cp %{_builddir}/dialog-1.3-20231002/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead || :
-cp %{_builddir}/dialog-1.3-20231002/package/debian/copyright %{buildroot}/usr/share/package-licenses/dialog/bf7ee27ddc7501b870568ac13e79f3beed561e8d || :
+cp %{_builddir}/dialog-1.3-20240101/COPYING %{buildroot}/usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead || :
 %make_install
 %find_lang dialog
 
@@ -171,7 +170,6 @@ cp %{_builddir}/dialog-1.3-20231002/package/debian/copyright %{buildroot}/usr/sh
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/dialog/545f380fb332eb41236596500913ff8d582e3ead
-/usr/share/package-licenses/dialog/bf7ee27ddc7501b870568ac13e79f3beed561e8d
 
 %files man
 %defattr(0644,root,root,0755)

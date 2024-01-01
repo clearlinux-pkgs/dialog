@@ -1,5 +1,5 @@
 PKG_NAME := dialog
-URL = https://invisible-mirror.net/archives/dialog/dialog-1.3-20231002.tgz
+URL = https://invisible-mirror.net/archives/dialog/dialog-1.3-20240101.tgz
 ARCHIVES = 
 
 include ../common/Makefile.common
