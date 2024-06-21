@@ -12,6 +12,8 @@ Configure miss: exetags
 Configure miss: exetags
 Configure miss: ggrep
 Configure miss: ggrep
+Configure miss: if -fPIC option is needed in CFLAGS
+Configure miss: if -fPIC option is needed in CFLAGS
 Configure miss: if exported-symbols file should be used
 Configure miss: if exported-symbols file should be used
 Configure miss: if rpath option should be used
@@ -72,3 +74,5 @@ Configure miss: x86_64-generic-linux-gnu-glibtool
 Configure miss: x86_64-generic-linux-gnu-glibtool
 Configure miss: x86_64-generic-linux-gnu-libtool
 Configure miss: x86_64-generic-linux-gnu-libtool
+Configure miss: x86_64-generic-linux-gnu-readelf
+Configure miss: x86_64-generic-linux-gnu-readelf
