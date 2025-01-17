@@ -2,8 +2,8 @@ Configure miss: _LARGE_FILES value needed for large files
 Configure miss: _LARGE_FILES value needed for large files
 Configure miss: _nc_free_and_exit
 Configure miss: _nc_free_and_exit
-Configure miss: _nc_init_pthreads in -lncursesw
-Configure miss: _nc_init_pthreads in -lncursesw
+Configure miss: _nc_init_pthreads
+Configure miss: _nc_init_pthreads
 Configure miss: additional libtool options
 Configure miss: additional libtool options
 Configure miss: exctags
